@@ -1,0 +1,12 @@
+{
+  "project": ".",
+  "xml_output": "src/sitemaps/sitemap.xml",
+  "json_output": "src/sitemaps/sitemap.json",
+  "base_url": "https://example.com",
+  "excluded_routes": {
+    "exact": [],
+    "children": [],
+    "patterns": []
+  },
+  "custom_sitemaps": {}
+}

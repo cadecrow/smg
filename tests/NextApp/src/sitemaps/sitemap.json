@@ -1,0 +1,79 @@
+[
+  {
+    "route": "/",
+    "path": "src/app/page.tsx",
+    "label": "Home",
+    "description": "",
+    "last_modified": "2025-05-01T19:48:24.416543667Z"
+  },
+  {
+    "route": "/example",
+    "path": "src/app/example/page.tsx",
+    "label": "Example",
+    "description": "",
+    "last_modified": "2025-05-01T19:25:46.762868256Z"
+  },
+  {
+    "route": "/exclude",
+    "path": "src/app/exclude/page.tsx",
+    "label": "Exclude",
+    "description": "",
+    "last_modified": "2025-05-01T19:25:56.538070634Z"
+  },
+  {
+    "route": "/exclude-children",
+    "path": "src/app/exclude-children/page.tsx",
+    "label": "Exclude Children",
+    "description": "",
+    "last_modified": "2025-05-01T19:26:08.049286039Z"
+  },
+  {
+    "route": "/exclude-children/exclude-1",
+    "path": "src/app/exclude-children/exclude-1/page.tsx",
+    "label": "Exclude 1",
+    "description": "",
+    "last_modified": "2025-05-01T19:26:23.108544840Z"
+  },
+  {
+    "route": "/exclude-children/exclude-1/exclude-1-child-1",
+    "path": "src/app/exclude-children/exclude-1/exclude-1-child-1/page.tsx",
+    "label": "Exclude 1 Child 1",
+    "description": "",
+    "last_modified": "2025-05-01T19:27:17.503946071Z"
+  },
+  {
+    "route": "/exclude-children/exclude-1/exclude-1-child-2",
+    "path": "src/app/exclude-children/exclude-1/exclude-1-child-2/page.tsx",
+    "label": "Exclude 1 Child 2",
+    "description": "",
+    "last_modified": "2025-05-01T19:27:38.828716150Z"
+  },
+  {
+    "route": "/exclude-children/exclude-2",
+    "path": "src/app/exclude-children/exclude-2/page.tsx",
+    "label": "Exclude 2",
+    "description": "",
+    "last_modified": "2025-05-01T19:26:51.854363140Z"
+  },
+  {
+    "route": "/exclude-children/exclude-3",
+    "path": "src/app/exclude-children/exclude-3/page.tsx",
+    "label": "Exclude 3",
+    "description": "",
+    "last_modified": "2025-05-01T19:27:02.447402279Z"
+  },
+  {
+    "route": "/include",
+    "path": "src/app/include/page.tsx",
+    "label": "Include",
+    "description": "",
+    "last_modified": "2025-05-01T19:28:18.026237446Z"
+  },
+  {
+    "route": "/include/sneaky-me",
+    "path": "src/app/include/sneaky-me/page.tsx",
+    "label": "Sneaky Me",
+    "description": "",
+    "last_modified": "2025-05-01T19:28:42.184619300Z"
+  }
+]
