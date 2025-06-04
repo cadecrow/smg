@@ -2,9 +2,10 @@
 
 smg is a SiteMap Generator for webapps.
 
-The goal of the project is to generate custom sitemaps for any web app, regardless of framework or meta-framework, with a single cli command. 
+The goal of the project is to generate custom sitemaps for any web app, regardless of framework or meta-framework, with a single cli command and within build processes (since this can automated with bash scripts and the config file).
 
 ## Current support
+
 - Next.js (lacking perfect implementation of some features)
 
 ## Important Notes and History
@@ -14,9 +15,11 @@ The original purpose was to generate sitemaps within a Next.js app router projec
 The docs and related code from the "initial commit" are evolving from this use case.
 
 ### Roadmap
+
 - convert from implementation only meant for next.js projects to a cli tool with a setup wizard. The setup wizard will allow users to config smg based on their framework, router, etc...
 
 # --- Following Docs in transition from initial commit ---
+
 A Next.js Sitemap Generator
 
 A command-line tool written in Rust that scans your Next.js project to automatically generate both XML and JSON sitemaps. The tool analyzes your project's file structure, identifies all routes based on the App Router conventions, and creates sitemap files that can be used for SEO and navigation.
@@ -128,20 +131,20 @@ smg --xml-output ./public/sitemap.xml --json-output ./src/data/sitemap.json
 
 ```json
 [
-  {
-    "route": "/",
-    "path": "app/page.tsx",
-    "label": "Home",
-    "description": "",
-    "last_modified": "2023-04-29T10:42:19Z"
-  },
-  {
-    "route": "/about",
-    "path": "app/about/page.tsx",
-    "label": "About",
-    "description": "",
-    "last_modified": "2023-04-28T15:30:00Z"
-  }
+	{
+		"route": "/",
+		"path": "app/page.tsx",
+		"label": "Home",
+		"description": "",
+		"last_modified": "2023-04-29T10:42:19Z"
+	},
+	{
+		"route": "/about",
+		"path": "app/about/page.tsx",
+		"label": "About",
+		"description": "",
+		"last_modified": "2023-04-28T15:30:00Z"
+	}
 ]
 ```
 
@@ -177,10 +180,10 @@ You can create an `smg.config.json` file in your project root to set default opt
 
 ```json
 {
-  "project": ".",
-  "xml_output": "public/sitemap.xml",
-  "json_output": "src/data/sitemap.json",
-  "base_url": "https://mywebsite.com"
+	"project": ".",
+	"xml_output": "public/sitemap.xml",
+	"json_output": "src/data/sitemap.json",
+	"base_url": "https://mywebsite.com"
 }
 ```
 
@@ -198,11 +201,11 @@ You can exclude specific routes from both the sitemap.xml and sitemap.json sitem
 
 ```json
 {
-  "excluded_routes": {
-    "exact": ["/admin", "/login"],
-    "children": ["/drafts"],
-    "patterns": ["^/temp-.*$"]
-  }
+	"excluded_routes": {
+		"exact": ["/admin", "/login"],
+		"children": ["/drafts"],
+		"patterns": ["^/temp-.*$"]
+	}
 }
 ```
 
@@ -217,28 +220,28 @@ You can also specify whether or not these routes are added to the main sitemap.j
 
 ```json
 {
-  "custom_sitemaps": {
-    "blog": {
-      "output": "blog_sitemap.json",
-      "include_in_main_json": true,
-      "include_in_main_xml": false,
-      "routes": {
-        "exact": ["/blog"],
-        "children": ["/posts"],
-        "patterns": ["^/articles/.*$"]
-      }
-    },
-    "products": {
-      "output": "products_sitemap.json",
-      "include_in_main_json": false,
-      "include_in_main_xml": true,
-      "routes": {
-        "exact": [],
-        "children": ["/products"],
-        "patterns": []
-      }
-    }
-  }
+	"custom_sitemaps": {
+		"blog": {
+			"output": "blog_sitemap.json",
+			"include_in_main_json": true,
+			"include_in_main_xml": false,
+			"routes": {
+				"exact": ["/blog"],
+				"children": ["/posts"],
+				"patterns": ["^/articles/.*$"]
+			}
+		},
+		"products": {
+			"output": "products_sitemap.json",
+			"include_in_main_json": false,
+			"include_in_main_xml": true,
+			"routes": {
+				"exact": [],
+				"children": ["/products"],
+				"patterns": []
+			}
+		}
+	}
 }
 ```
 
@@ -276,44 +279,44 @@ Here's a complete example of what the configuration file might look like:
 
 ```json
 {
-  "project": ".",
-  "xml_output": "public/sitemap.xml",
-  "json_output": "public/sitemap.json",
-  "base_url": "https://example.com",
+	"project": ".",
+	"xml_output": "public/sitemap.xml",
+	"json_output": "public/sitemap.json",
+	"base_url": "https://example.com",
 
-  "excluded_routes": {
-    "exact": ["/admin", "/login", "/logout"],
-    "children": ["/internal"],
-    "patterns": ["^/temp-.*$", "^/draft-.*$"]
-  },
+	"excluded_routes": {
+		"exact": ["/admin", "/login", "/logout"],
+		"children": ["/internal"],
+		"patterns": ["^/temp-.*$", "^/draft-.*$"]
+	},
 
-  "custom_sitemaps": {
-    "blog": {
-      "output": "public/blog_sitemap.json",
-      "include_in_main_json": true,
-      "include_in_main_xml": true,
-      "routes": {
-        "exact": ["/blog"],
-        "children": ["/posts"],
-        "patterns": ["^/articles/.*$"]
-      }
-    },
-    "products": {
-      "output": "public/products_sitemap.json",
-      "include_in_main_json": false,
-      "include_in_main_xml": true,
-      "routes": {
-        "children": ["/products"]
-      }
-    },
-    "docs": {
-      "output": "public/docs_sitemap.json",
-      "include_in_main_json": false,
-      "include_in_main_xml": false,
-      "routes": {
-        "children": ["/docs", "/guides"]
-      }
-    }
-  }
+	"custom_sitemaps": {
+		"blog": {
+			"output": "public/blog_sitemap.json",
+			"include_in_main_json": true,
+			"include_in_main_xml": true,
+			"routes": {
+				"exact": ["/blog"],
+				"children": ["/posts"],
+				"patterns": ["^/articles/.*$"]
+			}
+		},
+		"products": {
+			"output": "public/products_sitemap.json",
+			"include_in_main_json": false,
+			"include_in_main_xml": true,
+			"routes": {
+				"children": ["/products"]
+			}
+		},
+		"docs": {
+			"output": "public/docs_sitemap.json",
+			"include_in_main_json": false,
+			"include_in_main_xml": false,
+			"routes": {
+				"children": ["/docs", "/guides"]
+			}
+		}
+	}
 }
 ```
