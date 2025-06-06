@@ -3,6 +3,10 @@ name = "smg"
 version = "0.0.0"
 edition = "2024"
 
+[[bin]]
+name = "smg"
+path = "src/main/main.rs"
+
 [dependencies]
 clap = { version = "4.4", features = ["derive"] }
 walkdir = "2.4"
